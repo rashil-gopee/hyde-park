@@ -14,9 +14,10 @@ import javax.swing.GroupLayout;
  * @author unknown
  */
 public class WelcomeView extends JPanel {
+    private JFrame f = new JFrame();
+
     public WelcomeView() {
         initComponents();
-        JFrame f = new JFrame();
 
         //f.add(pnl);
         f.addWindowListener(new WindowAdapter() {
@@ -39,6 +40,7 @@ public class WelcomeView extends JPanel {
         // TODO add your code here
         System.out.println("login");
         LoginView loginView = new LoginView();
+        f.setVisible(false);
     }
 
     private void initComponents() {

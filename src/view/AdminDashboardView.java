@@ -14,14 +14,15 @@ import javax.swing.GroupLayout;
 public class AdminDashboardView extends JFrame {
     public AdminDashboardView() {
         initComponents();
+        this.setVisible(true);
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
         button1 = new JButton();
-        button2 = new JButton();
         button3 = new JButton();
+        label1 = new JLabel();
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -29,34 +30,38 @@ public class AdminDashboardView extends JFrame {
         //---- button1 ----
         button1.setText("Create User");
 
-        //---- button2 ----
-        button2.setText("Add Sign");
-
         //---- button3 ----
         button3.setText("Add Sign Location");
+
+        //---- label1 ----
+        label1.setText("Admin Dashboard");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(85, 85, 85)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(186, Short.MAX_VALUE))
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(136, 136, 136)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(button3)
+                                .addComponent(button1, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(151, 151, 151)
+                            .addComponent(label1)))
+                    .addContainerGap(135, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(32, 32, 32)
+                    .addGap(25, 25, 25)
+                    .addComponent(label1)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(button1)
                     .addGap(18, 18, 18)
-                    .addComponent(button2)
-                    .addGap(18, 18, 18)
                     .addComponent(button3)
-                    .addContainerGap(104, Short.MAX_VALUE))
+                    .addContainerGap(133, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -66,7 +71,7 @@ public class AdminDashboardView extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
     private JButton button1;
-    private JButton button2;
     private JButton button3;
+    private JLabel label1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

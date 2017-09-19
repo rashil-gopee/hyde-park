@@ -22,7 +22,6 @@ public class LoginView extends JFrame {
 
     private void loginButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
-        System.out.println("Login entered");
         int userId = Integer.parseInt(userIdField.getText());
 
         UserController userController = new UserController();
@@ -30,15 +29,17 @@ public class LoginView extends JFrame {
         UserModel userModel = userController.getUser(userId);
 
         if (userModel.checkPassword(passwordField.getPassword())) {
-            if (userModel.getUserType().equals("Admin"))
-                System.out.println("Admin");
-            else if (userModel.getUserType().equals("Personnel"));
+            if (userModel.getUserType().equals("Admin")){
+                AdminDashboardView adminDashboardView = new AdminDashboardView();
+                super.setVisible(false);
+            }
+            else if (userModel.getUserType().equals("Personnel")){
+                PersonnelDashboardView personnelDashboardView = new PersonnelDashboardView();
+                super.setVisible(false);
+            }
         }
         else
             System.out.println("Wrong Password");
-
-        System.out.println("Type" + userModel.getUserType());
-
     }
 
     private void initComponents() {
