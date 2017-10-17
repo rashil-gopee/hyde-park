@@ -38,8 +38,13 @@ public class WelcomeView extends JPanel {
 
     private void loginButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
-        System.out.println("login");
         LoginView loginView = new LoginView();
+        f.setVisible(false);
+    }
+
+    private void viewPersonnelsBtnActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        ViewPersonnelsView viewPersonnelsView = new ViewPersonnelsView();
         f.setVisible(false);
     }
 
@@ -49,7 +54,7 @@ public class WelcomeView extends JPanel {
         loginButton = new JButton();
         button1 = new JButton();
         button2 = new JButton();
-        button3 = new JButton();
+        viewPersonnelsBtn = new JButton();
         label1 = new JLabel();
 
         //======== this ========
@@ -64,12 +69,7 @@ public class WelcomeView extends JPanel {
 
         //---- loginButton ----
         loginButton.setText("Login");
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                loginButtonActionPerformed(e);
-            }
-        });
+        loginButton.addActionListener(e -> loginButtonActionPerformed(e));
 
         //---- button1 ----
         button1.setText("Report Incident");
@@ -77,8 +77,9 @@ public class WelcomeView extends JPanel {
         //---- button2 ----
         button2.setText("View Places");
 
-        //---- button3 ----
-        button3.setText("View Personnel");
+        //---- viewPersonnelsBtn ----
+        viewPersonnelsBtn.setText("View Personnels");
+        viewPersonnelsBtn.addActionListener(e -> viewPersonnelsBtnActionPerformed(e));
 
         //---- label1 ----
         label1.setText("Hyde Park Incident Reporting System");
@@ -93,7 +94,7 @@ public class WelcomeView extends JPanel {
                             .addGap(130, 130, 130)
                             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                 .addComponent(button1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                .addComponent(button3, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                .addComponent(viewPersonnelsBtn, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                                 .addComponent(button2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                                 .addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
                         .addGroup(layout.createSequentialGroup()
@@ -109,7 +110,7 @@ public class WelcomeView extends JPanel {
                     .addGap(18, 18, 18)
                     .addComponent(button1)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(button3)
+                    .addComponent(viewPersonnelsBtn)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(button2)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
@@ -124,7 +125,7 @@ public class WelcomeView extends JPanel {
     private JButton loginButton;
     private JButton button1;
     private JButton button2;
-    private JButton button3;
+    private JButton viewPersonnelsBtn;
     private JLabel label1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

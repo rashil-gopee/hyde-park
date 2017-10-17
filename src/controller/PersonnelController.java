@@ -6,6 +6,7 @@ import utils.DbConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class PersonnelController {
     public void createPersonnel(PersonnelModel personnelModel) {
@@ -68,4 +69,32 @@ public class PersonnelController {
         }
         return personnelModel;
     }
+
+    public ArrayList<PersonnelModel> getPersonnels(String type) {
+            Statement stmt = null;
+            ArrayList<PersonnelModel> personnels = new ArrayList<>();
+            try{
+                stmt = DbConnection.getConnection().createStatement();
+
+                String sql = "SELECT personnelId FROM User WHERE personnelType='" + type + "';";
+                ResultSet rs = stmt.executeQuery(sql);
+                //STEP 5: Extract data from result set
+                while(rs.next()){
+                    //Retrieve by column name
+                    int userId  = rs.getInt("personnelId");
+
+                    personnels.add(getPersonnel(userId));
+                }
+                rs.close();
+            }catch(SQLException se){
+                //Handle errors for JDBC
+                se.printStackTrace();
+            }catch(Exception e){
+                //Handle errors for Class.forName
+                e.printStackTrace();
+            }
+            return personnels;
+
+    }
+
 }

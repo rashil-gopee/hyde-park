@@ -26,12 +26,6 @@ public class UserModel {
         this.userType = userType;
     }
 
-    public void checkAvailability() {
-        Date date = new Date();
-
-        System.out.println(date.toString());
-    }
-
     public int getUserId() {
         return userId;
     }
