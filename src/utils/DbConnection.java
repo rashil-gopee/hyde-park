@@ -18,8 +18,8 @@ public class DbConnection  {
         return conn;
     }
 
-    public static void createDefaultTables() throws Exception{
-
+    public static void closeConnection() throws Exception{
+        conn.close();
     }
 
 }

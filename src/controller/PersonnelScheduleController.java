@@ -16,6 +16,7 @@ public class PersonnelScheduleController {
             String sql = "INSERT INTO PersonnelSchedule(personnelId, day, timeInHour, timeInMinutes, timeOutHour, timeOutMinutes) " +
                     "VALUES ('" + personnelScheduleModel.getUserId() +"','" + personnelScheduleModel.getDay() + "','" + personnelScheduleModel.getTimeInHour()+"','" + personnelScheduleModel.getTimeInMinutes() +"','" + personnelScheduleModel.getTimeOutHour()+"','" + personnelScheduleModel.getTimeOutMinutes() + "')";
             stmt.executeUpdate(sql);
+            DbConnection.closeConnection();
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();
@@ -35,6 +36,7 @@ public class PersonnelScheduleController {
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
             while(rs.next()){
+                System.out.println("rs");
                 //Retrieve by column name
                 int userId  = rs.getInt("personnelId");
                 String day = rs.getString("day");
@@ -48,6 +50,7 @@ public class PersonnelScheduleController {
                 personnelSchedules.add(user);
             }
             rs.close();
+            DbConnection.closeConnection();
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();

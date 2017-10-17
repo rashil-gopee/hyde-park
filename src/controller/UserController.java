@@ -16,6 +16,8 @@ public class UserController {
             String sql = "INSERT INTO User(firstName, lastName, password) " +
                     "VALUES ('" + user.getFirstName() +"','" + user.getLastName() + "','" + user.getPassword() + "')";
             stmt.executeUpdate(sql);
+
+            DbConnection.closeConnection();
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();
@@ -47,6 +49,7 @@ public class UserController {
                 users.add(user);
             }
             rs.close();
+            DbConnection.closeConnection();
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();
@@ -76,6 +79,7 @@ public class UserController {
 
                 userModel = new UserModel(userId,firstName,lastName,password, userType);
             }
+            DbConnection.closeConnection();
             //stmt.executeUpdate(sql);
         }catch(SQLException se){
             //Handle errors for JDBC

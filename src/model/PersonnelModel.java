@@ -2,13 +2,16 @@ package model;
 
 import controller.PersonnelScheduleController;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PersonnelModel extends UserModel {
     private String personnelType;
-    private ArrayList<PersonnelScheduleModel> personnelSchdules = new ArrayList<PersonnelScheduleModel>();
+    private ArrayList<PersonnelScheduleModel> personnelSchedules = new ArrayList<PersonnelScheduleModel>();
 
     public PersonnelModel(){}
 
@@ -29,9 +32,9 @@ public class PersonnelModel extends UserModel {
         this.personnelType = personnelType;
 
         PersonnelScheduleController personnelScheduleController = new PersonnelScheduleController();
-        this.personnelSchdules = personnelScheduleController.getPersonnelSchedules(userId);
+        this.personnelSchedules = personnelScheduleController.getPersonnelSchedules(userId);
 
-        this.checkAvailability();
+        System.out.println(this.checkAvailability());
     }
 
     public String getPersonnelType() {
@@ -46,12 +49,19 @@ public class PersonnelModel extends UserModel {
         LocalTime now = LocalTime.now();
         int hour = now.get(ChronoField.HOUR_OF_DAY);
         int minute = now.get(ChronoField.MINUTE_OF_HOUR);
-        int day = now.get(ChronoField.DAY_OF_WEEK);
 
-        System.out.println("hour   = " + hour);
-        System.out.println("minute = " + minute);
-        System.out.println("day = " + day);
+        Date today = new Date();
+        SimpleDateFormat simpleDateformat = new SimpleDateFormat("EEEE");
+        String day = simpleDateformat.format(today);
 
-        return true;
+        for (PersonnelScheduleModel schedule : personnelSchedules)
+        {
+            if (schedule.getDay().equals(day))
+                if (hour > schedule.getTimeInHour() || (hour == schedule.getTimeInHour() && minute >= schedule.getTimeInMinutes()))
+                    if (hour < schedule.getTimeOutHour() || (hour == schedule.getTimeOutHour() && minute <= schedule.getTimeInMinutes()))
+                        return true;
+        }
+
+        return false;
     }
 }

@@ -5,20 +5,27 @@
 package view;
 
 import controller.PersonnelController;
+import model.PersonnelModel;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Isswarraj Gopee
  */
 public class ViewPersonnelsView extends JFrame {
+    private ArrayList<PersonnelModel> personnels = new ArrayList<>();
+
     public ViewPersonnelsView() {
         PersonnelController personnelController = new PersonnelController();
-        personnelController.getPersonnels("Health Care");
+        personnels = personnelController.getPersonnels("Health Care");
 
         initComponents();
+
+        super.setVisible(true);
     }
 
     private void initComponents() {
@@ -54,7 +61,16 @@ public class ViewPersonnelsView extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
 
+        DefaultTableModel model = new DefaultTableModel();
+        personnelsTbl.setModel(model);
+        model.setColumnIdentifiers(new String[] {"First name", "Last name"});
 
+// Populate the JTable (TableModel) with data from ArrayList
+        for (PersonnelModel p : personnels)
+        {
+            if (p.checkAvailability())
+                model.addRow(new String[] {p.getFirstName(), p.getLastName()});
+        }
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables

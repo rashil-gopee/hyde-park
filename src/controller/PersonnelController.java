@@ -29,6 +29,8 @@ public class PersonnelController {
             String insertQuery = "INSERT INTO Personnel VALUES ('" + userId + "','" + personnelModel.getPersonnelType() + "');";
             stmt.executeUpdate(insertQuery);
 
+            DbConnection.closeConnection();
+
         } catch (SQLException se) {
             //Handle errors for JDBC
             se.printStackTrace();
@@ -54,11 +56,13 @@ public class PersonnelController {
             //STEP 5: Extract data from result set
             while (rs.first()) {
                 //Retrieve by column name
-                int userId = rs.getInt("userId");
+                int userId = rs.getInt("personnelId");
                 String personnelType = rs.getString("personnelType");
 
                 personnelModel = new PersonnelModel(userModel.getUserId(), userModel.getFirstName(), userModel.getLastName(), userModel.getPassword(), userModel.getUserType(), personnelType);
             }
+
+            DbConnection.closeConnection();
 
         } catch (SQLException se) {
             //Handle errors for JDBC
@@ -76,16 +80,24 @@ public class PersonnelController {
             try{
                 stmt = DbConnection.getConnection().createStatement();
 
-                String sql = "SELECT personnelId FROM User WHERE personnelType='" + type + "';";
+                String sql = "SELECT personnelId FROM Personnel WHERE personnelType='" + type + "';";
                 ResultSet rs = stmt.executeQuery(sql);
+
+                UserController userController = new UserController();
                 //STEP 5: Extract data from result set
                 while(rs.next()){
                     //Retrieve by column name
+                    System.out.println(rs.getInt("personnelId"));
                     int userId  = rs.getInt("personnelId");
 
-                    personnels.add(getPersonnel(userId));
+
+                    UserModel userModel = userController.getUser(userId);
+
+                    personnels.add(new PersonnelModel(userModel.getUserId(), userModel.getFirstName(), userModel.getLastName(), userModel.getPassword(), userModel.getUserType(), type));
                 }
                 rs.close();
+
+                DbConnection.closeConnection();
             }catch(SQLException se){
                 //Handle errors for JDBC
                 se.printStackTrace();
