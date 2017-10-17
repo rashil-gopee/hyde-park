@@ -66,8 +66,7 @@ public class UserModel {
         this.userType = userType;
     }
 
-    public boolean checkPassword(char[] password){
-        String pwd = new String(password);
-        return this.password.equals(pwd);
+    public boolean checkPassword(String password){
+        return this.password.equals(password);
     }
 }

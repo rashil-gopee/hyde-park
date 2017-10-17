@@ -21,7 +21,7 @@ public class PersonnelController {
             String sql = "SELECT userId FROM User WHERE firstName = '" + personnelModel.getFirstName() + "' AND lastName = '" + personnelModel.getLastName() + "';";
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
-            while (rs.first()) {
+            if (rs.first()) {
                 //Retrieve by column name
                 userId = rs.getInt("userId");
             }
@@ -54,12 +54,12 @@ public class PersonnelController {
             String sql = "SELECT * FROM Personnel WHERE personnelId = '" + personnelId + "';";
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
-            while (rs.first()) {
+            if (rs.first()) {
                 //Retrieve by column name
                 int userId = rs.getInt("personnelId");
                 String personnelType = rs.getString("personnelType");
 
-                personnelModel = new PersonnelModel(userModel.getUserId(), userModel.getFirstName(), userModel.getLastName(), userModel.getPassword(), userModel.getUserType(), personnelType);
+                personnelModel = new PersonnelModel(userModel.getUserId(), userModel.getFirstName(), userModel.getLastName(), userModel.getPassword(), personnelType);
             }
 
             DbConnection.closeConnection();
@@ -93,7 +93,7 @@ public class PersonnelController {
 
                     UserModel userModel = userController.getUser(userId);
 
-                    personnels.add(new PersonnelModel(userModel.getUserId(), userModel.getFirstName(), userModel.getLastName(), userModel.getPassword(), userModel.getUserType(), type));
+                    personnels.add(new PersonnelModel(userModel.getUserId(), userModel.getFirstName(), userModel.getLastName(), userModel.getPassword(), type));
                 }
                 rs.close();
 

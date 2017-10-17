@@ -28,7 +28,7 @@ public class LoginView extends JFrame {
 
         UserModel userModel = userController.getUser(userId);
 
-        if (userModel.checkPassword(passwordField.getPassword())) {
+        if (userModel.checkPassword(new String(passwordField.getPassword()))) {
             if (userModel.getUserType().equals("Admin")){
                 AdminDashboardView adminDashboardView = new AdminDashboardView();
                 super.setVisible(false);

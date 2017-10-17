@@ -1,3 +1,5 @@
+package jUnit;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -39,7 +41,7 @@ public class UserModelTest {
         assertEquals("abcdef",user.getPassword());
 
         char[] password = {'a','b','c','d','e','f'};
-        assertTrue(user.checkPassword(password));
+        assertTrue(user.checkPassword(new String(password)));
 
 
 

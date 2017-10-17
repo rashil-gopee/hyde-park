@@ -15,20 +15,20 @@ public class PersonnelModel extends UserModel {
 
     public PersonnelModel(){}
 
-    public PersonnelModel(String firstName, String lastName, String password, String userType, String personnelType) {
+    public PersonnelModel(String firstName, String lastName, String password, String personnelType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.userType = userType;
+        this.userType = "Personnel";
         this.personnelType = personnelType;
     }
 
-    public PersonnelModel(int userId,String firstName, String lastName, String password, String userType, String personnelType) {
+    public PersonnelModel(int userId,String firstName, String lastName, String password, String personnelType) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.userType = userType;
+        this.userType = "Personnel";
         this.personnelType = personnelType;
 
         PersonnelScheduleController personnelScheduleController = new PersonnelScheduleController();
