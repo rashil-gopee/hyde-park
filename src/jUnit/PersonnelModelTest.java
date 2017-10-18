@@ -25,7 +25,14 @@ public class PersonnelModelTest {
 
     @Test
     public void checkAvailability(){
-        assertFalse(personnelModel.checkAvailability());
+        assertTrue(personnelModel.checkAvailability());
+    }
+
+    @Test
+    public void createPersonnel(){
+        PersonnelModel personnel = new PersonnelModel("Mark", "Legend", "Hello", "Law Enforcement");
+        PersonnelController personnelController = new PersonnelController();
+        personnelController.createPersonnel(personnel);
     }
 
 }

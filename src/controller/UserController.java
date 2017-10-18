@@ -13,8 +13,8 @@ public class UserController {
         Statement stmt = null;
         try{
             stmt = DbConnection.getConnection().createStatement();
-            String sql = "INSERT INTO User(firstName, lastName, password) " +
-                    "VALUES ('" + user.getFirstName() +"','" + user.getLastName() + "','" + user.getPassword() + "')";
+            String sql = "INSERT INTO User(firstName, lastName, password, userType) " +
+                    "VALUES ('" + user.getFirstName() +"','" + user.getLastName() + "','" + user.getPassword() + "','" + user.getUserType() + "')";
             stmt.executeUpdate(sql);
 
             DbConnection.closeConnection();

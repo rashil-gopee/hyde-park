@@ -48,11 +48,16 @@ public class WelcomeView extends JPanel {
         f.setVisible(false);
     }
 
+    private void buttonReportIncidentActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        ReportIncidentView reportIncidentView = new ReportIncidentView();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
         loginButton = new JButton();
-        button1 = new JButton();
+        buttonReportIncident = new JButton();
         button2 = new JButton();
         viewPersonnelsBtn = new JButton();
         label1 = new JLabel();
@@ -71,8 +76,9 @@ public class WelcomeView extends JPanel {
         loginButton.setText("Login");
         loginButton.addActionListener(e -> loginButtonActionPerformed(e));
 
-        //---- button1 ----
-        button1.setText("Report Incident");
+        //---- buttonReportIncident ----
+        buttonReportIncident.setText("Report Incident");
+        buttonReportIncident.addActionListener(e -> buttonReportIncidentActionPerformed(e));
 
         //---- button2 ----
         button2.setText("View Places");
@@ -93,7 +99,7 @@ public class WelcomeView extends JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(130, 130, 130)
                             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(button1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                .addComponent(buttonReportIncident, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                                 .addComponent(viewPersonnelsBtn, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                                 .addComponent(button2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                                 .addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
@@ -108,7 +114,7 @@ public class WelcomeView extends JPanel {
                     .addGap(43, 43, 43)
                     .addComponent(label1)
                     .addGap(18, 18, 18)
-                    .addComponent(button1)
+                    .addComponent(buttonReportIncident)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(viewPersonnelsBtn)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -123,7 +129,7 @@ public class WelcomeView extends JPanel {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
     private JButton loginButton;
-    private JButton button1;
+    private JButton buttonReportIncident;
     private JButton button2;
     private JButton viewPersonnelsBtn;
     private JLabel label1;

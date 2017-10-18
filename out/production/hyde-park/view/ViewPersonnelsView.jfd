@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {comp scrollPane1:::p:399:p, space :0:0:x}}"
-			"$verticalGroup": "par l {seq l {space :p:26:p, comp scrollPane1:::p::p, space :::x}}"
+			"$horizontalGroup": "par l {seq t {space :p:67:p, comp label2:::p::p, space :p:39:p, comp typeJComboBox:::p:181:p, space :p:30:p}, seq {par l {seq l {space :p:148:p, comp label1:::p::p}, seq l {space :p:20:p, comp scrollPane1:::p:357:p}}, space :::p}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp label1:::p::p, space :p:12:p, par l {comp typeJComboBox:::p::p, comp label2:::p::p}, space ::15:x, comp scrollPane1:::p:193:p}}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -13,6 +13,18 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JTable" ) {
 					name: "personnelsTbl"
 				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "View Personnels"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "typeJComboBox"
+				addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "typeJComboBoxItemStateChanged", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Personnel Type"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

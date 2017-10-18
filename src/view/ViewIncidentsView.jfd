@@ -1,0 +1,34 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space ::141:x, comp label2:::p::p, space :p:40:p, comp comboBoxStatus:::p::p, space :p:125:p}, seq {space :p:149:p, comp label1:::p::p, space ::173:x}, seq l {comp scrollPane1:::p:401:p, space :0:0:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label1:::p::p, space s:::p, par l {comp comboBoxStatus:::p::p, comp label2:::p::p}, space s:::p, comp scrollPane1::::184:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "View Incidents"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBoxStatus"
+				addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "comboBoxStatusItemStateChanged", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Status"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "tableIncidents"
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 
@@ -17,24 +18,26 @@ public class PersonnelDashboardView extends JFrame {
         this.setVisible(true);
     }
 
+    private void buttonViewIncidentsActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        ViewIncidentsView viewIncidentsView = new ViewIncidentsView();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
-        button1 = new JButton();
+        buttonViewIncidents = new JButton();
         label1 = new JLabel();
-        button2 = new JButton();
 
         //======== this ========
         Container contentPane = getContentPane();
 
-        //---- button1 ----
-        button1.setText("View Open Emergies");
+        //---- buttonViewIncidents ----
+        buttonViewIncidents.setText("View Incidents");
+        buttonViewIncidents.addActionListener(e -> buttonViewIncidentsActionPerformed(e));
 
         //---- label1 ----
         label1.setText("Personnel Dashboard");
-
-        //---- button2 ----
-        button2.setText("View Closed Emergencies");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -42,9 +45,7 @@ public class PersonnelDashboardView extends JFrame {
             contentPaneLayout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap(119, Short.MAX_VALUE)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addComponent(button1, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(button2))
+                    .addComponent(buttonViewIncidents, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
                     .addGap(115, 115, 115))
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(141, 141, 141)
@@ -57,10 +58,8 @@ public class PersonnelDashboardView extends JFrame {
                     .addGap(38, 38, 38)
                     .addComponent(label1)
                     .addGap(18, 18, 18)
-                    .addComponent(button1)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(button2)
-                    .addContainerGap(120, Short.MAX_VALUE))
+                    .addComponent(buttonViewIncidents)
+                    .addContainerGap(164, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -69,8 +68,7 @@ public class PersonnelDashboardView extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
-    private JButton button1;
+    private JButton buttonViewIncidents;
     private JLabel label1;
-    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

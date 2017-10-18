@@ -14,8 +14,9 @@ public class IncidentController {
         Statement stmt = null;
         try{
             stmt = DbConnection.getConnection().createStatement();
+            String isOpen = incidentModel.getOpen().toString();
             String sql = "INSERT INTO Incident(type, reporterName, reporterContactNo, location, isOpen, date) " +
-                    "VALUES ('" + incidentModel.getType() +"','" + incidentModel.getReporterContactNo() + "','" + incidentModel.getLocation() +"','" + incidentModel.getOpen() +"','" + incidentModel.getDate() + "')";
+                    "VALUES ('" + incidentModel.getType()+"','" + incidentModel.getReporterName()  +"','" + incidentModel.getReporterContactNo() + "','" + incidentModel.getLocation() +"','" + isOpen +"','" + incidentModel.getDate() + "')";
             stmt.executeUpdate(sql);
 
             DbConnection.closeConnection();
@@ -45,13 +46,20 @@ public class IncidentController {
         }
     }
 
-    public ArrayList<IncidentModel> getIncidents(String incidentType){
+    public ArrayList<IncidentModel> getIncidents(String status){
+        String isIncidentOpen;
+
+        if (status.equals("Open"))
+            isIncidentOpen = "true";
+        else
+            isIncidentOpen = "false";
+
         Statement stmt = null;
         ArrayList<IncidentModel> incidentModels = new ArrayList<>();
         try{
             stmt = DbConnection.getConnection().createStatement();
 
-            String sql = "SELECT incidentId, type, reporterName, reporterContactNo, location, isOpen, date, responsiblePersonnelId FROM Incident WHERE type='" + incidentType + "';";
+            String sql = "SELECT incidentId, type, reporterName, reporterContactNo, location, isOpen, date, responsiblePersonnelId FROM Incident WHERE isOpen='" + isIncidentOpen + "';";
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
             while(rs.next()){
@@ -61,7 +69,13 @@ public class IncidentController {
                 String reporterName = rs.getString("reporterName");
                 String reporterContactNo = rs.getString("reporterContactNo");
                 String location = rs.getString("location");
-                Boolean isOpen = rs.getBoolean("isOpen");
+                String OpenStatus = rs.getString("isOpen");
+                Boolean isOpen;
+                if (OpenStatus.equals("true"))
+                    isOpen = true;
+                else
+                    isOpen = false;
+
                 Date date = rs.getDate("date");
                 int responsiblePersonnelId = rs.getInt("responsiblePersonnelId");
 

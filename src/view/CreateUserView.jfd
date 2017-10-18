@@ -1,0 +1,67 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:62:p, par l {seq l {space :p:125:p, comp label2:::p::p}, seq l {space :p:30:p, par l {comp label1::l:p:109:p, comp label3::l:p::p, comp label4:::p::p, comp label5:::p::p}, space :p:43:p, par l:::p {comp comboBoxUserType::::173:x, comp passwordField::::173:x, comp textFieldFirstName::::173:x, comp textFieldLastName::::173:x}}}, space ::71:x}, seq t {space :::p, comp panelPersonnel:::::x, space :::p}, seq t {space ::244:x, comp buttonSave:::p::p, space :p:190:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, par t {comp label5:::p::p, seq {comp label2:::p::p, space :p:8:p, par b {comp label1::b:p::p, comp textFieldFirstName::b:p::p}, space s:::p, par b {comp label3::b:p::p, comp textFieldLastName::b:p::p}, space s:::p, par b {comp passwordField::b:p::p, comp label4::b:p::p}, space s:::p, comp comboBoxUserType:::p::p}}, space :::p, comp panelPersonnel:::p::p, space s:::p, comp buttonSave:::p::p, space ::15:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Firstname"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldFirstName"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Create User"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Lastname"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldLastName"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Password"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBoxUserType"
+				addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "comboBoxUserTypeItemStateChanged", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "User type"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space :p:80:p, comp label6:::p::p, space ::73:x, comp comboBoxPersonnelType:::p:163:p, space :p:79:p}}"
+				"$verticalGroup": "par l {seq l {space ::28:x, par l {comp comboBoxPersonnelType:::p::p, comp label6:::p::p}}}"
+			} ) {
+				name: "panelPersonnel"
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBoxPersonnelType"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label6"
+					"text": "Personnel Type"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonSave"
+				"text": "Save"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonSaveActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 490, 340 )
+		} )
+	}
+}
