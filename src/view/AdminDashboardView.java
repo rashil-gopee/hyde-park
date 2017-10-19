@@ -23,11 +23,16 @@ public class AdminDashboardView extends JFrame {
         CreateUserView createUserView = new CreateUserView();
     }
 
+    private void buttonCreateScheduleActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        CreateScheduleView createScheduleView = new CreateScheduleView();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
         buttonCreateUser = new JButton();
-        button3 = new JButton();
+        buttonCreateSchedule = new JButton();
         label1 = new JLabel();
 
         //======== this ========
@@ -37,8 +42,9 @@ public class AdminDashboardView extends JFrame {
         buttonCreateUser.setText("Create User");
         buttonCreateUser.addActionListener(e -> buttonCreateUserActionPerformed(e));
 
-        //---- button3 ----
-        button3.setText("Add Personnel Schedule");
+        //---- buttonCreateSchedule ----
+        buttonCreateSchedule.setText("Add Personnel Schedule");
+        buttonCreateSchedule.addActionListener(e -> buttonCreateScheduleActionPerformed(e));
 
         //---- label1 ----
         label1.setText("Admin Dashboard");
@@ -54,7 +60,7 @@ public class AdminDashboardView extends JFrame {
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addGap(0, 121, Short.MAX_VALUE)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(button3)
+                        .addComponent(buttonCreateSchedule)
                         .addComponent(buttonCreateUser, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE))
                     .addGap(119, 119, 119))
         );
@@ -66,7 +72,7 @@ public class AdminDashboardView extends JFrame {
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(buttonCreateUser)
                     .addGap(18, 18, 18)
-                    .addComponent(button3)
+                    .addComponent(buttonCreateSchedule)
                     .addContainerGap(133, Short.MAX_VALUE))
         );
         pack();
@@ -77,7 +83,7 @@ public class AdminDashboardView extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Isswarraj Gopee
     private JButton buttonCreateUser;
-    private JButton button3;
+    private JButton buttonCreateSchedule;
     private JLabel label1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

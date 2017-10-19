@@ -30,7 +30,7 @@ public class PersonnelModelTest {
 
     @Test
     public void createPersonnel(){
-        PersonnelModel personnel = new PersonnelModel("Mark", "Legend", "Hello", "Law Enforcement");
+        PersonnelModel personnel = new PersonnelModel("Hey", "Legend", "Hello", "Law Enforcement");
         PersonnelController personnelController = new PersonnelController();
         personnelController.createPersonnel(personnel);
     }

@@ -1,0 +1,59 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:110:p, comp label1:::p::p}, seq l {space :p:22:p, par l {comp label2::l:p::p, comp label3::l:p::p, comp label4::l:p::p, comp label5:::p::p}, space :p:49:p, par l {par l:::p {comp textFieldPersonnelId::::139:x, comp comboBoxDay::::139:x}, par t:l {comp button1:::p::p, seq {par t:::p {comp textFieldTimeOutHour::l::79:x, comp textFieldTimeInHour::l::79:x}, space s:::p, par l:::p {comp textFieldTimeInMinutes::::82:x, comp textFieldTimeOutMinutes::::82:x}}}}}}, space ::83:x}}"
+			"$verticalGroup": "par l {seq l {space :p:14:p, comp label1:::p::p, space s:::p, par b {comp label2::b:p::p, comp textFieldPersonnelId::b:p::p}, space s:::p, par l {comp label3:::p::p, comp comboBoxDay:::p::p}, par l {seq {space :p:17:p, comp label4:::p::p}, seq l {space s:::p, par b {comp textFieldTimeInHour::b:p::p, comp textFieldTimeInMinutes::b:p::p}}}, space :p:19:p, par b {comp textFieldTimeOutHour::b:p::p, comp textFieldTimeOutMinutes::b:p::p, comp label5::b:p::p}, space ::15:x, comp button1:::p::p, space :p:20:p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Create Personnel Schedule"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Personnel Id"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldPersonnelId"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Day"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBoxDay"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Time In"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldTimeInHour"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldTimeInMinutes"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldTimeOutHour"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFieldTimeOutMinutes"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Time Out"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Save"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 45, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
